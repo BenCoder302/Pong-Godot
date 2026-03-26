@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://155xx7s6y6ta"]
 
 [ext_resource type="Texture2D" uid="uid://m4ujul5cfpfp" path="res://assets/Board.png" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://bsff4mhvutx2j" path="res://assets/Computer.png" id="2_0wfyh"]
-[ext_resource type="Script" uid="uid://cyqgaofwvf13l" path="res://scripts/player.gd" id="2_sugp2"]
-[ext_resource type="Texture2D" uid="uid://b1wdufuoth5sg" path="res://assets/Player.png" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://b60guav8nrfk" path="res://scripts/enemy.gd" id="4_tbgi4"]
-[ext_resource type="Script" uid="uid://dl8e654i5okk1" path="res://scripts/ball.gd" id="6_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://bmabmoo3hq8jn" path="res://assets/Ball.png" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://cyqgaofwvf13l" path="res://scripts/player.gd" id="2_choun"]
+[ext_resource type="Texture2D" uid="uid://bsff4mhvutx2j" path="res://assets/Computer.png" id="3_ya4ey"]
+[ext_resource type="Script" uid="uid://b60guav8nrfk" path="res://scripts/enemy.gd" id="4_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://b1wdufuoth5sg" path="res://assets/Player.png" id="5_trceg"]
+[ext_resource type="Script" uid="uid://dl8e654i5okk1" path="res://scripts/ball.gd" id="6_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://bmabmoo3hq8jn" path="res://assets/Ball.png" id="7_jkv2x"]
 [ext_resource type="Script" uid="uid://daoxxogxth0vt" path="res://scripts/player_score_label.gd" id="8_85g3d"]
 [ext_resource type="Script" uid="uid://dxrvjb0os7sk7" path="res://scripts/enemy_score_label.gd" id="9_choun"]
-[ext_resource type="Script" uid="uid://b2ltr7u8ion7f" path="res://scripts/game_over.gd" id="10_choun"]
+[ext_resource type="Script" uid="uid://b2ltr7u8ion7f" path="res://scripts/game_over_label.gd" id="10_choun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(18.75, 118)
@@ -37,39 +37,39 @@ scale = Vector2(0.86034906, 1.1703297)
 texture = ExtResource("1_o5qli")
 metadata/_edit_lock_ = true
 
-[node name="Player" type="Area2D" parent="." unique_id=1619671631]
+[node name="Player" type="Area2D" parent="." unique_id=518620918]
 position = Vector2(9, 230)
-script = ExtResource("2_sugp2")
+script = ExtResource("2_choun")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="PlayerSprite" type="Sprite2D" parent="Player" unique_id=2048974461]
-texture = ExtResource("2_0wfyh")
+[node name="PlayerSprite" type="Sprite2D" parent="Player" unique_id=1883165581]
+texture = ExtResource("3_ya4ey")
 
-[node name="PlayerCollision" type="CollisionShape2D" parent="Player" unique_id=1785785362]
+[node name="PlayerCollision" type="CollisionShape2D" parent="Player" unique_id=587344572]
 shape = SubResource("RectangleShape2D_0wfyh")
 
-[node name="Enemy" type="Area2D" parent="." unique_id=1441634685]
+[node name="Enemy" type="Area2D" parent="." unique_id=854798774]
 position = Vector2(630, 224)
-script = ExtResource("4_tbgi4")
+script = ExtResource("4_eb6dy")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="EnemySprite" type="Sprite2D" parent="Enemy" unique_id=1929353561]
-texture = ExtResource("4_jyhfs")
+[node name="EnemySprite" type="Sprite2D" parent="Enemy" unique_id=1435199930]
+texture = ExtResource("5_trceg")
 
-[node name="EnemyCollision" type="CollisionShape2D" parent="Enemy" unique_id=1689072085]
+[node name="EnemyCollision" type="CollisionShape2D" parent="Enemy" unique_id=375323049]
 shape = SubResource("RectangleShape2D_jyhfs")
 
-[node name="Ball" type="Area2D" parent="." unique_id=379916714]
+[node name="Ball" type="Area2D" parent="." unique_id=1651323130]
 position = Vector2(320, 240)
-script = ExtResource("6_o6xl0")
+script = ExtResource("6_a8y0u")
 metadata/_edit_group_ = true
 
-[node name="BallSprite" type="Sprite2D" parent="Ball" unique_id=1879623845]
-texture = ExtResource("6_tefeu")
+[node name="BallSprite" type="Sprite2D" parent="Ball" unique_id=2044211118]
+texture = ExtResource("7_jkv2x")
 
-[node name="BallCollision" type="CollisionShape2D" parent="Ball" unique_id=1547622703]
+[node name="BallCollision" type="CollisionShape2D" parent="Ball" unique_id=863801948]
 shape = SubResource("CircleShape2D_tefeu")
 
 [node name="PlayerScoreLabel" type="Label" parent="." unique_id=20235257]

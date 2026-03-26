@@ -5,8 +5,7 @@ extends Area2D
 func _ready():
 	GameState.reset_score()
 	visible = true
-	position.y = 240
-	position.x = 17/2
+	reset_player()
 
 func _process(delta):
 	if GameState.game_over:
@@ -20,3 +19,7 @@ func _process(delta):
 		position.y = 480 - 60 
 	if position.y <= 0 + 60:
 		position.y = 0 + 60
+
+func reset_player():
+	position.y = 240
+	position.x = 17/2
