@@ -2,6 +2,7 @@ extends Area2D
 
 @export var speed_x = 0
 @export var speed_y = 0
+var constant_speed = 200
 @onready var player = get_parent().get_node("Player")
 @onready var enemy = get_parent().get_node("Enemy")
 
@@ -13,6 +14,7 @@ func _process(delta):
 	if GameState.game_over:
 		visible = false
 		stop_ball()
+		return
 	move_ball(delta)
 	check_score()
 
@@ -40,10 +42,13 @@ func stop_ball():
 	speed_y = 0
 
 func move_ball(delta):
-	position.x += speed_x * delta
-	position.y += speed_y * delta
+	#position.x += speed_x * delta
+	#position.y += speed_y * delta
 	if position.y >= 480 - 15 or position.y <= 0 + 15:
 		speed_y = -speed_y
+	var direction = Vector2(speed_x, speed_y).normalized()
+	var velocity = direction * constant_speed
+	position += velocity * delta
 
 func reset_ball():
 	stop_ball()
