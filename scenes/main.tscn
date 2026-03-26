@@ -7,15 +7,23 @@
 [ext_resource type="Script" uid="uid://b60guav8nrfk" path="res://scripts/enemy.gd" id="4_tbgi4"]
 [ext_resource type="Script" uid="uid://dl8e654i5okk1" path="res://scripts/ball.gd" id="6_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bmabmoo3hq8jn" path="res://assets/Ball.png" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://daoxxogxth0vt" path="res://scripts/player_score_label.gd" id="8_85g3d"]
+[ext_resource type="Script" uid="uid://dxrvjb0os7sk7" path="res://scripts/enemy_score_label.gd" id="9_choun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
-size = Vector2(18.75, 120)
+size = Vector2(18.75, 118)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
-size = Vector2(18, 122)
+size = Vector2(18, 118)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tefeu"]
-radius = 15.033297
+radius = 14.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_85g3d"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_choun"]
+font_size = 30
 
 [node name="Main" type="Node2D" unique_id=380758577]
 
@@ -52,12 +60,37 @@ shape = SubResource("RectangleShape2D_jyhfs")
 [node name="Ball" type="Area2D" parent="." unique_id=379916714]
 position = Vector2(320, 240)
 script = ExtResource("6_o6xl0")
+speed_x = 400
 metadata/_edit_group_ = true
 
 [node name="BallSprite" type="Sprite2D" parent="Ball" unique_id=1879623845]
 texture = ExtResource("6_tefeu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1547622703]
+[node name="BallCollision" type="CollisionShape2D" parent="Ball" unique_id=1547622703]
 shape = SubResource("CircleShape2D_tefeu")
+
+[node name="PlayerScoreLabel" type="Label" parent="." unique_id=20235257]
+offset_left = 128.0
+offset_top = 10.0
+offset_right = 168.0
+offset_bottom = 52.0
+text = "0"
+label_settings = SubResource("LabelSettings_85g3d")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_85g3d")
+metadata/_edit_lock_ = true
+
+[node name="EnemyScoreLabel" type="Label" parent="." unique_id=1450168458]
+offset_left = 464.0
+offset_top = 11.0
+offset_right = 504.0
+offset_bottom = 53.0
+text = "0"
+label_settings = SubResource("LabelSettings_choun")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_choun")
+metadata/_edit_lock_ = true
 
 [connection signal="area_entered" from="Ball" to="Ball" method="_on_area_entered"]
