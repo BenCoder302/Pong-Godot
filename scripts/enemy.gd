@@ -4,12 +4,12 @@ extends Area2D
 
 func _ready():
 	position.y = 240
-	position.x = 17/2
+	position.x = 640 - 17/2
 
 func _process(delta):
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_w"):
 		position.y -= speed * delta
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_s"):
 		position.y += speed * delta
 	
 	if position.y >= 480 - 60:

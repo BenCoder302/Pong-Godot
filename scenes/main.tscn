@@ -3,9 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://m4ujul5cfpfp" path="res://assets/Board.png" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://bsff4mhvutx2j" path="res://assets/Computer.png" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://cyqgaofwvf13l" path="res://scripts/player.gd" id="2_sugp2"]
+[ext_resource type="Texture2D" uid="uid://b1wdufuoth5sg" path="res://assets/Player.png" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://b60guav8nrfk" path="res://scripts/enemy.gd" id="4_tbgi4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(18.75, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
+size = Vector2(18, 122)
 
 [node name="Main" type="Node2D" unique_id=380758577]
 
@@ -24,5 +29,17 @@ metadata/_edit_lock_ = true
 [node name="PlayerSprite" type="Sprite2D" parent="Player" unique_id=2048974461]
 texture = ExtResource("2_0wfyh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1785785362]
+[node name="PlayerCollision" type="CollisionShape2D" parent="Player" unique_id=1785785362]
 shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="Enemy" type="Area2D" parent="." unique_id=1441634685]
+position = Vector2(630, 224)
+script = ExtResource("4_tbgi4")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="EnemySprite" type="Sprite2D" parent="Enemy" unique_id=1929353561]
+texture = ExtResource("4_jyhfs")
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="Enemy" unique_id=1689072085]
+shape = SubResource("RectangleShape2D_jyhfs")
