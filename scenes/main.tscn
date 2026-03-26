@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bmabmoo3hq8jn" path="res://assets/Ball.png" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://daoxxogxth0vt" path="res://scripts/player_score_label.gd" id="8_85g3d"]
 [ext_resource type="Script" uid="uid://dxrvjb0os7sk7" path="res://scripts/enemy_score_label.gd" id="9_choun"]
+[ext_resource type="Script" uid="uid://b2ltr7u8ion7f" path="res://scripts/game_over.gd" id="10_choun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(18.75, 118)
@@ -24,6 +25,9 @@ font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_choun"]
 font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_ya4ey"]
+font_size = 25
 
 [node name="Main" type="Node2D" unique_id=380758577]
 
@@ -60,7 +64,6 @@ shape = SubResource("RectangleShape2D_jyhfs")
 [node name="Ball" type="Area2D" parent="." unique_id=379916714]
 position = Vector2(320, 240)
 script = ExtResource("6_o6xl0")
-speed_x = 400
 metadata/_edit_group_ = true
 
 [node name="BallSprite" type="Sprite2D" parent="Ball" unique_id=1879623845]
@@ -92,5 +95,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_choun")
 metadata/_edit_lock_ = true
+
+[node name="GameOver" type="Label" parent="." unique_id=581795175]
+visible = false
+offset_right = 639.0
+offset_bottom = 480.0
+text = "Player Wins
+Press Space to start again"
+label_settings = SubResource("LabelSettings_ya4ey")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_choun")
 
 [connection signal="area_entered" from="Ball" to="Ball" method="_on_area_entered"]
