@@ -5,12 +5,17 @@
 [ext_resource type="Script" uid="uid://cyqgaofwvf13l" path="res://scripts/player.gd" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://b1wdufuoth5sg" path="res://assets/Player.png" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://b60guav8nrfk" path="res://scripts/enemy.gd" id="4_tbgi4"]
+[ext_resource type="Script" uid="uid://dl8e654i5okk1" path="res://scripts/ball.gd" id="6_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://bmabmoo3hq8jn" path="res://assets/Ball.png" id="6_tefeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(18.75, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
 size = Vector2(18, 122)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tefeu"]
+radius = 15.033297
 
 [node name="Main" type="Node2D" unique_id=380758577]
 
@@ -43,3 +48,16 @@ texture = ExtResource("4_jyhfs")
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="Enemy" unique_id=1689072085]
 shape = SubResource("RectangleShape2D_jyhfs")
+
+[node name="Ball" type="Area2D" parent="." unique_id=379916714]
+position = Vector2(320, 240)
+script = ExtResource("6_o6xl0")
+metadata/_edit_group_ = true
+
+[node name="BallSprite" type="Sprite2D" parent="Ball" unique_id=1879623845]
+texture = ExtResource("6_tefeu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1547622703]
+shape = SubResource("CircleShape2D_tefeu")
+
+[connection signal="area_entered" from="Ball" to="Ball" method="_on_area_entered"]
